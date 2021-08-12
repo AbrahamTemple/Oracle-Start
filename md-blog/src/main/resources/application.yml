@@ -1,0 +1,24 @@
+server:
+  port: 8073
+
+database:
+  oracle:
+    ip: 127.0.0.1
+    port: 1521
+    username: admin
+    password: admin16
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@${database.oracle.ip}:${database.oracle.port}:orcl
+    username: ${database.oracle.username}
+    password: ${database.oracle.password}
+
+mybatis-plus:
+  global-config:
+    db-config:
+      capital-mode: true #字段大写
+      update-strategy: not_empty #非空串更新
